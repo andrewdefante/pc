@@ -1,10 +1,3 @@
-//
-//  PitchChartApp.swift
-//  PitchChart
-//
-//  Created by Andrew Defante on 1/5/26.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -12,7 +5,8 @@ import SwiftData
 struct PitchChartApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Pitch.self,
+            Item.self  // if you still use Item
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +19,7 @@ struct PitchChartApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PitchEntryView()
         }
         .modelContainer(sharedModelContainer)
     }
