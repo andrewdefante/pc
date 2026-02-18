@@ -12,24 +12,35 @@ import SwiftData
 final class Pitch {
     var id: UUID
     var pitchNumber: Int
-    var atBatNumber: Int   // <--- add this
+    var atBatNumber: Int
     var atBatPitchNumber: Int
     var pitchType: String
     var velocity: Int?
     var isStrike: Bool
-    var outcome: String?
-    var location: String
+    var result: String
+    var zone: Int
+    var count: String
+    var inning: Int
+    var paResult: String?
+    var outsRecorded: Int
     var timestamp: Date
+
+    var player: Player?
+    var game: Game?
 
     init(
         pitchNumber: Int,
-        atBatNumber: Int,           // <--- add this
+        atBatNumber: Int,
         atBatPitchNumber: Int,
         pitchType: String,
         velocity: Int? = nil,
         isStrike: Bool,
-        outcome: String? = nil,
-        location: String,
+        result: String,
+        zone: Int,
+        count: String,
+        inning: Int,
+        paResult: String? = nil,
+        outsRecorded: Int = 0,
         timestamp: Date = .now
     ) {
         self.id = UUID()
@@ -39,9 +50,12 @@ final class Pitch {
         self.pitchType = pitchType
         self.velocity = velocity
         self.isStrike = isStrike
-        self.outcome = outcome
-        self.location = location
+        self.result = result
+        self.zone = zone
+        self.count = count
+        self.inning = inning
+        self.paResult = paResult
+        self.outsRecorded = outsRecorded
         self.timestamp = timestamp
     }
 }
-

@@ -12,17 +12,25 @@ import SwiftData
 final class Game {
     var id: UUID
     var date: Date
-    var opponent: String?
+    var opponent: String
     var location: String?
+    var isComplete: Bool
+
+    @Relationship(deleteRule: .cascade, inverse: \Pitch.game)
+    var pitches: [Pitch] = []
+
+    var team: Team?
 
     init(
         date: Date = .now,
-        opponent: String? = nil,
-        location: String? = nil
+        opponent: String,
+        location: String? = nil,
+        team: Team? = nil
     ) {
         self.id = UUID()
         self.date = date
         self.opponent = opponent
         self.location = location
+        self.isComplete = false
     }
 }

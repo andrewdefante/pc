@@ -1,4 +1,10 @@
+//
+//  PitchChartApp.swift
+//  PitchChart
+//
+
 import SwiftUI
+import SwiftData
 
 @main
 struct PitchChartApp: App {
@@ -6,5 +12,6 @@ struct PitchChartApp: App {
         WindowGroup {
             LandingView()
         }
+        .modelContainer(for: [Team.self, Game.self, Player.self, Pitch.self])
     }
 }
